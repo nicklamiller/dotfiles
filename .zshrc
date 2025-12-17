@@ -102,7 +102,13 @@ source $ZSH/oh-my-zsh.sh
 #alias gcc="gcc-13"
 #alias g++="g++-13"
 alias clang="gcc-13"
-alias cat='pygmentize -g'
+alias dtmux="~/.dtmux.sh"
+alias g="git"
+alias work="timer 25m && terminal-notifier -message 'Pomodoro'\
+      -title 'Work Timer is up! Take a Break 😊'\
+      -appIcon '~/Pictures/pumpkin.png'\
+      -sound Crystal"
+alias ff="fastfetch"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -123,5 +129,45 @@ if [ -f "/Users/nick/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+# Ensure conda environments are prioritized over pyenv
+export PATH="/Users/nick/miniforge3/bin:$PATH"
+eval "$(conda shell.zsh hook)"
+
+
 bindkey \^U backward-kill-line
 unsetopt PROMPT_SP
+
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+
+eval "$(rbenv init - zsh)"
+
+# Java installed via homebrew
+export JAVA_HOME=/usr/local/opt/openjdk
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Java installed to build Spark locally
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+. "$HOME/.cargo/env"
+
+
+# Ruby version management
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/shims:$PATH"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/Users/nick/.pixi/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/nick/.antigravity/antigravity/bin:$PATH"
+
+# Helper functions
+man-headers() {
+    man $1 | grep "^\S"
+}
