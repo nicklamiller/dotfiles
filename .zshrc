@@ -137,11 +137,6 @@ eval "$(conda shell.zsh hook)"
 bindkey \^U backward-kill-line
 unsetopt PROMPT_SP
 
-# Load rbenv automatically by appending
-# the following to ~/.zshrc:
-
-eval "$(rbenv init - zsh)"
-
 # Java installed via homebrew
 export JAVA_HOME=/usr/local/opt/openjdk
 export PATH=$JAVA_HOME/bin:$PATH
@@ -152,11 +147,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 
 . "$HOME/.cargo/env"
-
-
-# Ruby version management
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/shims:$PATH"
 
 
 export NVM_DIR="$HOME/.nvm"
