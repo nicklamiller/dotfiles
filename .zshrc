@@ -110,6 +110,9 @@ alias work="timer 25m && terminal-notifier -message 'Pomodoro'\
       -sound Crystal"
 alias ff="fastfetch"
 
+# add homebrew to PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/nick/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
